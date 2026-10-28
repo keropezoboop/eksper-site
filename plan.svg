@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none" stroke="#b08d57" stroke-linecap="square">
+  <defs>
+    <pattern id="minor" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" stroke-width=".4" opacity=".5"/>
+    </pattern>
+    <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#minor)" stroke="none"/>
+      <path d="M100 0H0V100" stroke-width=".8"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="url(#major)" stroke="none" opacity=".55"/>
+
+  <!-- outer walls -->
+  <g stroke-width="5">
+    <path d="M200 180H1000V720H200Z"/>
+  </g>
+  <!-- inner walls -->
+  <g stroke-width="3">
+    <path d="M560 180V420M560 500V720"/>
+    <path d="M200 460H460M520 460H560"/>
+    <path d="M560 440H760M840 440H1000"/>
+    <path d="M780 440V720"/>
+    <path d="M780 580H1000"/>
+  </g>
+  <!-- door swings -->
+  <g stroke-width="1.2">
+    <path d="M460 460A60 60 0 0 1 520 400" />
+    <path d="M460 460V400" stroke-dasharray="4 4"/>
+    <path d="M760 440A80 80 0 0 0 840 520"/>
+    <path d="M560 420A80 80 0 0 1 640 500" />
+  </g>
+  <!-- windows -->
+  <g stroke-width="1.2">
+    <path d="M300 174H460M300 186H460"/>
+    <path d="M660 174H900M660 186H900"/>
+    <path d="M194 560V660M206 560V660"/>
+    <path d="M994 260V380M1006 260V380"/>
+  </g>
+  <!-- stairs -->
+  <g stroke-width="1">
+    <path d="M800 600H980V700H800Z"/>
+    <path d="M820 600V700M840 600V700M860 600V700M880 600V700M900 600V700M920 600V700M940 600V700M960 600V700"/>
+    <path d="M810 650H970" stroke-dasharray="6 4"/>
+  </g>
+  <!-- dimension lines -->
+  <g stroke-width="1">
+    <path d="M200 120H1000M200 110V130M1000 110V130M560 112V128"/>
+    <path d="M140 180V720M130 180H150M130 720H150M132 460H148"/>
+    <path d="M200 790H560M560 790H780M780 790H1000M200 780V800M560 780V800M780 780V800M1000 780V800"/>
+  </g>
+  <g fill="#b08d57" stroke="none" font-family="Manrope, sans-serif" font-size="13" letter-spacing="3">
+    <text x="600" y="108" text-anchor="middle">12.40</text>
+    <text x="380" y="815" text-anchor="middle">5.60</text>
+    <text x="670" y="815" text-anchor="middle">3.40</text>
+    <text x="890" y="815" text-anchor="middle">3.40</text>
+    <text x="118" y="450" text-anchor="middle" transform="rotate(-90 118 450)">8.40</text>
+    <text x="380" y="330" text-anchor="middle">SALON</text>
+    <text x="380" y="600" text-anchor="middle">YATAK ODASI</text>
+    <text x="780" y="320" text-anchor="middle">MUTFAK</text>
+    <text x="670" y="620" text-anchor="middle">BANYO</text>
+  </g>
+  <!-- section mark -->
+  <g stroke-width="1">
+    <circle cx="1080" cy="820" r="26"/>
+    <path d="M1054 820H1106"/>
+  </g>
+  <g fill="#b08d57" stroke="none" font-family="Manrope, sans-serif" font-size="12" text-anchor="middle">
+    <text x="1080" y="812">A</text>
+    <text x="1080" y="838">01</text>
+  </g>
+</svg>
