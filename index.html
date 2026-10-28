@@ -58,14 +58,6 @@
   .btn-ghost { border: 1px solid rgba(245,241,234,.55); color: var(--cream); }
   .btn-ghost:hover { background: var(--cream); color: var(--ink); }
 
-  /* Expertise strip */
-  .strip { background: var(--ink); color: var(--cream); }
-  .strip .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
-  .strip div.item { padding: 48px 32px; border-left: 1px solid rgba(245,241,234,.12); }
-  .strip div.item:first-child { border-left: 0; padding-left: 0; }
-  .strip .eyebrow { color: var(--gold-soft); }
-  .strip h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; margin-top: 10px; line-height: 1.2; }
-
   section { padding: 128px 0; }
   .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
   .sec-head .eyebrow { color: var(--gold); margin-bottom: 14px; }
@@ -73,21 +65,23 @@
   h2 em { color: var(--gold); }
 
   /* About */
-  .about { position: relative; overflow: hidden; }
-  .about::before { content: ""; position: absolute; inset: 0; background: url(plan.svg) no-repeat right -120px center / min(1200px, 95vw) auto; opacity: .2; pointer-events: none; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 85%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 85%, transparent 100%); }
-  .about .wrap { position: relative; z-index: 1; }
-  .about .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 88px; align-items: center; }
-  .portrait { aspect-ratio: 4/5; background: var(--cream-2); position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); font-size: 13px; padding: 24px; }
-  .portrait::after { content: ""; position: absolute; inset: 16px -16px -16px 16px; border: 1px solid var(--gold); z-index: -1; }
-  .about h2 { margin: 14px 0 28px; }
-  .about p { color: #45423d; font-size: 16px; max-width: 56ch; }
-  .about p + p { margin-top: 16px; }
-  .timeline { margin-top: 40px; border-top: 1px solid #d9d1c3; }
-  .timeline li { list-style: none; display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid #d9d1c3; }
-  .timeline .y { font-family: var(--serif); font-size: 22px; color: var(--gold); line-height: 1.2; }
-  .timeline .t { font-size: 15px; }
-  .quote { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; margin-top: 40px; padding-left: 24px; border-left: 2px solid var(--gold); max-width: 30ch; }
-  .sign { font-family: var(--sans); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; margin-top: 18px; padding-left: 26px; color: var(--muted); }
+  /* Intro (Carolwood-style) */
+  .intro { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--cream); overflow: hidden; padding: 120px 0; }
+  .intro > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .intro::after { content: ""; position: absolute; inset: 0; background: rgba(20,22,26,.66); }
+  .intro .wrap { position: relative; z-index: 1; max-width: 900px; }
+  .intro .title { font-size: clamp(22px, 2.6vw, 34px); letter-spacing: .32em; text-transform: uppercase; font-weight: 300; }
+  .intro .rule { width: 56px; height: 1px; background: var(--gold-soft); margin: 28px auto; }
+  .intro p { font-size: 17px; font-weight: 300; line-height: 1.85; max-width: 62ch; margin: 0 auto; opacity: .92; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border-top: 1px solid rgba(245,241,234,.22); }
+  .facts > div { padding: 26px 16px 0; }
+  .facts > div + div { border-left: 1px solid rgba(245,241,234,.22); }
+  .facts .y { font-family: var(--serif); font-size: 24px; color: var(--gold-soft); }
+  .facts .t { font-size: 13px; opacity: .85; margin-top: 6px; line-height: 1.5; }
+  .intro .quote { font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2.2vw, 28px); line-height: 1.4; margin: 56px auto 0; max-width: 34ch; }
+  .intro .sign { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; margin-top: 14px; opacity: .7; }
+  .scroll-cue { position: absolute; left: 50%; bottom: 28px; z-index: 1; width: 22px; height: 22px; border-right: 1px solid var(--cream); border-bottom: 1px solid var(--cream); transform: translateX(-50%) rotate(45deg); opacity: .8; animation: cue 2.4s ease-in-out infinite; }
+  @keyframes cue { 50% { transform: translate(-50%, 8px) rotate(45deg); opacity: .4; } }
 
   /* Services: split rows (Rouse-style) */
   .services { padding-bottom: 0; }
@@ -180,14 +174,11 @@
     nav a:not(.btn-line) { display: none; }
     header .wrap { height: 76px; }
     .logo b { font-size: 24px; }
-    .strip .wrap { grid-template-columns: 1fr; }
-    .strip div.item { border-left: 0; border-top: 1px solid rgba(245,241,234,.12); padding: 28px 0; }
-    .strip div.item:first-child { border-top: 0; }
     section { padding: 88px 0; }
-    .about .wrap, .valuation .wrap { grid-template-columns: 1fr; gap: 56px; }
-    .portrait { max-width: 420px; }
-    .timeline li { grid-template-columns: 1fr; gap: 2px; }
-    .about::before { background-position: center 70%; background-size: 160% auto; -webkit-mask-image: none; mask-image: none; opacity: .12; }
+    .valuation .wrap { grid-template-columns: 1fr; gap: 56px; }
+    .facts { grid-template-columns: 1fr; }
+    .facts > div + div { border-left: 0; border-top: 1px solid rgba(245,241,234,.22); margin-top: 22px; }
+    .intro p { font-size: 16px; }
     .split { grid-template-columns: 1fr; min-height: 0; }
     .split .media { aspect-ratio: 4/3; }
     .split.rev .media { order: 0; }
@@ -221,7 +212,7 @@
   <div class="wrap">
     <a href="#" class="logo"><b>EKSPER</b><span>GAYRİMENKUL · BURSA</span></a>
     <nav>
-      <a href="#hakkimizda">Uzmanınız</a>
+      <a href="#hakkimizda">Hakkımızda</a>
       <a href="#hizmetler">Hizmetler</a>
       <a href="#rehber">Rehber</a>
       <a href="#ilanlar">İlanlar</a>
@@ -242,33 +233,22 @@
       <a href="tel:+905438381632" class="btn btn-ghost">0543 838 16 32</a>
     </div>
   </div>
+  <a href="#hakkimizda" class="scroll-cue" aria-label="Aşağı kaydır"></a>
 </div>
 
-<div class="strip">
-  <div class="wrap">
-    <div class="item rv"><div class="eyebrow">1980 – 2009</div><h3>Toplu Konut ve MSB inşaatlarında denetim</h3></div>
-    <div class="item rv"><div class="eyebrow">Değerleme</div><h3>Gayrimenkul değerleme uzmanlığı</h3></div>
-    <div class="item rv"><div class="eyebrow">Bugün</div><h3>Nilüfer'de alım, satım ve kiralama danışmanlığı</h3></div>
-  </div>
-</div>
-
-<section class="about" id="hakkimizda">
-  <div class="wrap">
-    <div class="portrait rv">Yaşar Bey'in portresi buraya gelecek</div>
-    <div class="rv">
-      <div class="eyebrow" style="color:var(--gold)">Uzmanınız</div>
-      <h2>Bir evi, <em>yapılırken</em> görmüş birinin gözüyle.</h2>
-      <p>Gayrimenkul alımı, hayatta vereceğiniz en önemli kararlardan ve yapacağınız en yüksek yatırımlardan biridir. Bu kararda bir gayrimenkul uzmanına danışmak çok faydalıdır.</p>
-      <p>Yaşar Yıldırım, uzun yıllar boyunca edindiği gayrimenkul inceleme ve değerleme tecrübesiyle hakkınızı korumak için yanınızda.</p>
-      <ul class="timeline">
-        <li><span class="y">1980 – 1982</span><span class="t">Toplu Konut inşaatlarında kontrolör</span></li>
-        <li><span class="y">1982 – 2009</span><span class="t">Milli Savunma Bakanlığı'na ait her türlü inşaatın denetimi</span></li>
-        <li><span class="y">Sonrası</span><span class="t">Merkezi Ankara'da bir gayrimenkul değerleme firmasında Emlak Değerleme Uzmanı</span></li>
-        <li><span class="y">Bugün</span><span class="t">Eksper Gayrimenkul, Nilüfer</span></li>
-      </ul>
-      <blockquote class="quote">“Benim için en önemli prensip dürüstlüktür. Size doğru bilgileri sunarak, karar verme sürecinizde yanınızda olacağım.”</blockquote>
-      <div class="sign">Yaşar Yıldırım</div>
+<section class="intro" id="hakkimizda">
+  <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=2000&q=75&fm=jpg" alt="" loading="lazy">
+  <div class="wrap rv">
+    <div class="title">Eksper Gayrimenkul</div>
+    <div class="rule"></div>
+    <p>Eksper Gayrimenkul, Nilüfer'de alım, satım ve kiralama danışmanlığı veren bir emlak ofisidir. Kurucusu Yaşar Yıldırım, yıllarca Toplu Konut ve Milli Savunma Bakanlığı inşaatlarında denetim yaptı; ardından bir gayrimenkul değerleme firmasında Emlak Değerleme Uzmanı olarak çalıştı. Bugün bu birikimi, dürüstlük ve iyi hizmet prensipleriyle sizin hakkınızı korumak için kullanıyor.</p>
+    <div class="facts">
+      <div><div class="y">1980 – 1982</div><div class="t">Toplu Konut inşaatlarında kontrolör</div></div>
+      <div><div class="y">1982 – 2009</div><div class="t">Milli Savunma Bakanlığı inşaatlarının denetimi</div></div>
+      <div><div class="y">Sonrası</div><div class="t">Emlak Değerleme Uzmanı</div></div>
     </div>
+    <blockquote class="quote">“Benim için en önemli prensip dürüstlüktür.”</blockquote>
+    <div class="sign">Yaşar Yıldırım</div>
   </div>
 </section>
 
