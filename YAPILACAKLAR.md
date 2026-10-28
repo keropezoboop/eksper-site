@@ -47,6 +47,15 @@ Görüşmede sor: **"Siteyi kendiniz güncellemek ister misiniz, yoksa değişik
 - [ ] Rehber galerisini son yazıları otomatik gösterecek hale getir.
 - [ ] Paneli kur ve Yaşar Bey'e 10 dakikalık kullanım gösterimi yap.
 
+## Yayına alma ve barındırma (eski sitenin yerine koymak)
+Görüşmede sor: **"Alan adınız ve sitenizin barındırması kimin hesabında, şifresi kimde?"** (Siteyi başka biri kurduysa erişim/devir gerekebilir; en uzun sürebilecek kısım bu.)
+- [ ] Siteyi ücretsiz sabit site barındırmasına koy (Netlify / Vercel / Cloudflare Pages), GitHub'a bağla.
+- [ ] Taşımadan önce alan adının e-posta (MX) kayıtlarını kontrol et. (Gmail kullanıyorlar, büyük ihtimalle risk yok.)
+- [ ] `eksperbursaemlak.com` alan adını yeni siteye yönlendir (DNS). Yayılması birkaç saat sürebilir.
+- [ ] Blog yazılarını taşırken adresleri aynı tut (ör. `/bursa-kiralik-ev-ve-daire/`), Google sıralaması korunsun.
+- [ ] Yeni site sorunsuz çalışınca eski WordPress barındırmasını iptal ettir (önce yenilenme tarihine bak).
+- [ ] Sayfadaki `noindex` etiketini kaldır (şu an arama motorlarına kapalı).
+
 ## Fiyat notları (Ekim 2026 piyasa araştırması, kabaca gösterge)
 - Bu müşteriye site **ücretsiz** (karşılığında portföy izni).
 - **Yönetim paneli:** 2.000 TL, tek seferlik.
