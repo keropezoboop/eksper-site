@@ -86,29 +86,38 @@
   .quote { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; margin-top: 40px; padding-left: 24px; border-left: 2px solid var(--gold); max-width: 30ch; }
   .sign { font-family: var(--sans); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; margin-top: 18px; padding-left: 26px; color: var(--muted); }
 
-  /* Services */
-  .services .grid3 { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #d9d1c3; }
-  .svc { padding: 40px 40px 32px 0; border-bottom: 1px solid #d9d1c3; }
-  .svc:nth-child(odd) { border-right: 1px solid #d9d1c3; }
-  .svc:nth-child(even) { padding-left: 40px; }
-  .svc .n { font-family: var(--serif); color: var(--gold); font-size: 20px; }
-  .svc h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; margin: 18px 0 14px; }
-  .svc p { color: #45423d; font-size: 15px; }
-  .svc ul { margin-top: 18px; }
-  .svc li { list-style: none; font-size: 14px; padding: 9px 0; border-top: 1px solid #e3dccf; }
+  /* Services: split rows (Rouse-style) */
+  .services { padding-bottom: 0; }
+  .services .sec-head { margin-bottom: 72px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 78vh; }
+  .split .media { position: relative; overflow: hidden; }
+  .split .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+  .split:hover .media img { transform: scale(1.03); }
+  .split .txt { display: flex; flex-direction: column; justify-content: center; padding: 96px clamp(32px, 7vw, 120px); }
+  .split.rev .media { order: 2; }
+  .split .n { font-family: var(--serif); color: var(--gold); font-size: 20px; }
+  .split h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.08; margin: 16px 0 18px; }
+  .split p { color: #45423d; font-size: 16px; max-width: 46ch; }
+  .split ul { margin-top: 28px; max-width: 46ch; }
+  .split li { list-style: none; font-size: 15px; padding: 12px 0; border-top: 1px solid #ddd5c7; display: flex; gap: 14px; }
+  .split li::before { content: "—"; color: var(--gold); }
+  .split:nth-of-type(even) { background: var(--cream-2); }
 
-  /* Expert eye */
-  .eye { background: var(--cream-2); }
-  .eye .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 88px; align-items: start; }
-  .eye .photo { aspect-ratio: 3/4; overflow: hidden; position: sticky; top: 40px; }
-  .eye .photo img { width: 100%; height: 100%; object-fit: cover; }
-  .eye .eyebrow { color: var(--gold); }
-  .eye h2 { margin: 14px 0 20px; }
-  .eye .lead { color: #45423d; max-width: 52ch; }
-  .checks { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
-  .checks div { padding: 22px 0; border-top: 1px solid #d3cabb; }
-  .checks b { display: block; font-family: var(--serif); font-weight: 500; font-size: 22px; margin-bottom: 6px; }
-  .checks span { font-size: 14px; color: #5a5650; }
+  /* Expert eye: cinematic bands */
+  .eye { padding: 0; background: var(--ink); color: var(--cream); }
+  .eye-head { padding: 128px 0 72px; }
+  .eye-head .eyebrow { color: var(--gold-soft); }
+  .eye-head h2 { margin: 14px 0 20px; }
+  .eye-head h2 em { color: var(--gold-soft); }
+  .eye-head p { max-width: 54ch; opacity: .75; }
+  .band { position: relative; min-height: 64vh; display: flex; align-items: flex-end; overflow: hidden; border-top: 1px solid rgba(245,241,234,.08); }
+  .band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); transition: transform 2.4s cubic-bezier(.2,.7,.2,1); }
+  .band.in img { transform: scale(1); }
+  .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,22,26,.92) 0%, rgba(20,22,26,.7) 45%, rgba(20,22,26,.3) 100%); }
+  .band .wrap { position: relative; z-index: 1; width: 100%; padding-top: 80px; padding-bottom: 80px; display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: end; }
+  .band .n { font-family: var(--serif); font-size: 64px; line-height: 1; color: var(--gold-soft); opacity: .9; }
+  .band h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.6vw, 68px); line-height: 1.02; }
+  .band p { margin-top: 16px; max-width: 48ch; font-size: 17px; font-weight: 300; opacity: .88; }
 
   /* Guides */
   .guides { background: var(--cream); }
@@ -175,11 +184,15 @@
     .about .wrap, .valuation .wrap { grid-template-columns: 1fr; gap: 56px; }
     .portrait { max-width: 420px; }
     .timeline li { grid-template-columns: 1fr; gap: 2px; }
-    .services .grid3 { grid-template-columns: 1fr; }
-    .svc, .svc:nth-child(even) { padding: 32px 0 24px; border-right: 0; }
-    .eye .wrap { grid-template-columns: 1fr; gap: 48px; }
-    .eye .photo { position: static; aspect-ratio: 4/3; }
-    .checks { grid-template-columns: 1fr; }
+    .split { grid-template-columns: 1fr; min-height: 0; }
+    .split .media { aspect-ratio: 4/3; }
+    .split.rev .media { order: 0; }
+    .split .txt { padding: 40px 20px 56px; }
+    .eye-head { padding: 88px 0 48px; }
+    .band { min-height: 72vh; }
+    .band .wrap { grid-template-columns: 1fr; gap: 8px; padding-top: 56px; padding-bottom: 56px; }
+    .band .n { font-size: 44px; }
+    .band::after { background: linear-gradient(180deg, rgba(20,22,26,.25) 0%, rgba(20,22,26,.9) 75%); }
     .gl { grid-template-columns: 1fr; }
     .portfolio { padding: 112px 0; }
     .map { aspect-ratio: 4/3; }
@@ -260,49 +273,46 @@
     <div class="sec-head">
       <div><div class="eyebrow">Hizmetler</div><h2>Her adımda <em>danışmanınız</em></h2></div>
     </div>
-    <div class="grid3">
-      <div class="svc rv">
-        <div class="n">01</div>
-        <h3>Satanlar için</h3>
-        <p>Gayrimenkulünüzün en kısa zamanda ve değerinde satılması için.</p>
-        <ul><li>Emsalleri inceleyerek fiyat araştırması</li><li>İç ve dış fotoğraf çekimi, ilan sitelerinde yayın ve takip</li><li>Teknik inceleme ile az masrafla değer artırma önerileri</li><li>Alıcı tekliflerinin değerlendirilmesi</li></ul>
-      </div>
-      <div class="svc rv">
-        <div class="n">02</div>
-        <h3>Alanlar için</h3>
-        <p>Siz ve aileniz için en doğru kararı vermeniz için.</p>
-        <ul><li>İhtiyaçlarınıza uygun gayrimenkul araştırması</li><li>Depreme dayanıklılık ve teknik inceleme</li><li>Kredi ve faiz araştırması</li><li>Satıcıyla bire bir görüşme ve teklif</li></ul>
-      </div>
-      <div class="svc rv">
-        <div class="n">03</div>
-        <h3>Kiralama ve mülk yönetimi</h3>
-        <p>Konut, işyeri, ofis ve arazide kiraya veren ve kiracıya danışmanlık.</p>
-        <ul><li>Kiralama aracılık hizmetleri</li><li>Kiralık ofis ve işyeri danışmanlığı</li><li>Vergi, harç, abonelik ve sigorta işlemlerinin takibi</li></ul>
-      </div>
-      <div class="svc rv">
-        <div class="n">04</div>
-        <h3>Değerleme ve yatırım</h3>
-        <p>Doğru fiyat ve doğru yatırım kararı için.</p>
-        <ul><li>Gerçek satış ve kira değerinin tespiti</li><li>En uygun bölge, mülk tipi ve fiyat için yatırım danışmanlığı</li></ul>
-      </div>
-    </div>
+  </div>
+  <div class="split">
+    <div class="media"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=75&fm=jpg" alt="" loading="lazy"></div>
+    <div class="txt rv"><div class="n">01</div><h3>Satanlar için</h3><p>Gayrimenkulünüzün en kısa zamanda ve değerinde satılması için.</p><ul><li>Emsalleri inceleyerek fiyat araştırması</li><li>İç ve dış fotoğraf çekimi, ilan sitelerinde yayın ve takip</li><li>Teknik inceleme ile az masrafla değer artırma önerileri</li><li>Alıcı tekliflerinin değerlendirilmesi</li></ul></div>
+  </div>
+  <div class="split rev">
+    <div class="media"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=75&fm=jpg" alt="" loading="lazy"></div>
+    <div class="txt rv"><div class="n">02</div><h3>Alanlar için</h3><p>Siz ve aileniz için en doğru kararı vermeniz için.</p><ul><li>İhtiyaçlarınıza uygun gayrimenkul araştırması</li><li>Depreme dayanıklılık ve teknik inceleme</li><li>Kredi ve faiz araştırması</li><li>Satıcıyla bire bir görüşme ve teklif</li></ul></div>
+  </div>
+  <div class="split">
+    <div class="media"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=75&fm=jpg" alt="" loading="lazy"></div>
+    <div class="txt rv"><div class="n">03</div><h3>Kiralama ve mülk yönetimi</h3><p>Konut, işyeri, ofis ve arazide kiraya veren ve kiracıya danışmanlık.</p><ul><li>Kiralama aracılık hizmetleri</li><li>Kiralık ofis ve işyeri danışmanlığı</li><li>Vergi, harç, abonelik ve sigorta işlemlerinin takibi</li></ul></div>
+  </div>
+  <div class="split rev">
+    <div class="media"><img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1600&q=75&fm=jpg" alt="" loading="lazy"></div>
+    <div class="txt rv"><div class="n">04</div><h3>Değerleme ve yatırım</h3><p>Doğru fiyat ve doğru yatırım kararı için.</p><ul><li>Gerçek satış ve kira değerinin tespiti</li><li>En uygun bölge, mülk tipi ve fiyat için yatırım danışmanlığı</li></ul></div>
   </div>
 </section>
 
 <section class="eye">
-  <div class="wrap">
-    <div class="photo rv"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=75&fm=jpg" alt="" loading="lazy"></div>
-    <div class="rv">
-      <div class="eyebrow">Uzman gözü</div>
-      <h2>Bir eve <em>uzman</em> gözüyle bakmak</h2>
-      <p class="lead">Uzun yıllar edinilen gayrimenkul inceleme ve değerleme tecrübesiyle, alacağınız evi yapısıyla birlikte değerlendiriyoruz.</p>
-      <div class="checks">
-        <div><b>Depreme dayanıklılık</b><span>Alacağınız gayrimenkulün depreme karşı dayanıklılığını araştırıyoruz.</span></div>
-        <div><b>Malzeme kalitesi</b><span>İnşaatta kullanılan malzemenin TSE standartlarına uyup uymadığına bakıyoruz.</span></div>
-        <div><b>Teknik inceleme</b><span>Alacağınız gayrimenkulü teknik olarak inceliyoruz.</span></div>
-        <div><b>Gerçek değer</b><span>Emsalleri inceleyerek doğru fiyatı araştırıyoruz.</span></div>
-      </div>
-    </div>
+  <div class="wrap eye-head rv">
+    <div class="eyebrow">Uzman gözü</div>
+    <h2>Bir eve <em>uzman</em> gözüyle bakmak</h2>
+    <p>Uzun yıllar edinilen gayrimenkul inceleme ve değerleme tecrübesiyle, alacağınız evi yapısıyla birlikte değerlendiriyoruz.</p>
+  </div>
+  <div class="band rv">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2000&q=75&fm=jpg" alt="" loading="lazy">
+    <div class="wrap"><div class="n">01</div><div><h3>Depreme dayanıklılık</h3><p>Alacağınız gayrimenkulün depreme karşı dayanıklılığını araştırıyoruz.</p></div></div>
+  </div>
+  <div class="band rv">
+    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=2000&q=75&fm=jpg" alt="" loading="lazy">
+    <div class="wrap"><div class="n">02</div><div><h3>Malzeme kalitesi</h3><p>İnşaatta kullanılan malzemenin TSE standartlarına uyup uymadığına bakıyoruz.</p></div></div>
+  </div>
+  <div class="band rv">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=2000&q=75&fm=jpg" alt="" loading="lazy">
+    <div class="wrap"><div class="n">03</div><div><h3>Teknik inceleme</h3><p>Alacağınız gayrimenkulü teknik olarak inceliyoruz.</p></div></div>
+  </div>
+  <div class="band rv">
+    <img src="https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=2000&q=75&fm=jpg" alt="" loading="lazy">
+    <div class="wrap"><div class="n">04</div><div><h3>Gerçek değer</h3><p>Emsalleri inceleyerek doğru fiyatı araştırıyoruz.</p></div></div>
   </div>
 </section>
 
