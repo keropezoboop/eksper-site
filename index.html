@@ -116,15 +116,28 @@
   .band h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.6vw, 68px); line-height: 1.02; }
   .band p { margin-top: 16px; max-width: 48ch; font-size: 17px; font-weight: 300; opacity: .88; }
 
-  /* Guides */
-  .guides { background: var(--cream); }
-  .gl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
-  .g { display: flex; flex-direction: column; padding: 32px 0 36px; border-top: 1px solid #d9d1c3; transition: border-color .3s; }
-  .g:hover { border-color: var(--gold); }
-  .gn { font-family: var(--serif); color: var(--gold); font-size: 20px; }
-  .g h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; line-height: 1.2; margin: 14px 0 12px; }
-  .g p { font-size: 14px; color: #5a5650; flex: 1; }
-  .g .more { margin-top: 20px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+  /* Guides slider (Carolwood "Sold" style) */
+  .guides { background: var(--cream); padding: 112px 0 104px; }
+  .guides .gtitle { text-align: center; font-size: clamp(22px, 2.4vw, 32px); letter-spacing: .28em; text-transform: uppercase; font-weight: 300; color: #3a3833; margin-bottom: 48px; }
+  .track { display: flex; gap: 40px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 0 7.5vw; scrollbar-width: none; }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { position: relative; flex: 0 0 85vw; max-width: 1240px; aspect-ratio: 16/8.4; overflow: hidden; scroll-snap-align: center; color: var(--cream); display: block; }
+  .slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+  .slide:hover img { transform: scale(1.03); }
+  .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,22,26,0) 35%, rgba(20,22,26,.82) 100%); }
+  .slide .cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 0 48px 44px; }
+  .slide .cap .k { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-soft); }
+  .slide h3 { font-weight: 300; font-size: clamp(22px, 2.4vw, 34px); letter-spacing: .08em; text-transform: uppercase; margin-top: 10px; line-height: 1.2; }
+  .slide .cap p { font-size: 15px; font-weight: 300; opacity: .85; margin-top: 8px; max-width: 60ch; }
+  .gctrl { max-width: calc(85vw); margin: 32px auto 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .arrows { display: flex; align-items: center; gap: 28px; }
+  .arrows button { background: none; border: 0; cursor: pointer; width: 34px; height: 34px; position: relative; }
+  .arrows button::before { content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; border-left: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); transform: translate(-30%, -50%) rotate(45deg); }
+  .arrows button.next::before { transform: translate(-70%, -50%) rotate(-135deg); }
+  .arrows button:disabled { opacity: .25; cursor: default; }
+  .count { white-space: nowrap; font-size: 12px; letter-spacing: .24em; color: var(--muted); }
+  .btn-outline { white-space: nowrap; border: 1px solid #6b2f2f; color: #4a2323; padding: 16px 36px; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; transition: all .3s; }
+  .btn-outline:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 
   /* Portfolio CTA */
   .portfolio { position: relative; color: var(--cream); padding: 160px 0; overflow: hidden; text-align: center; }
@@ -188,7 +201,14 @@
     .band .wrap { grid-template-columns: 1fr; gap: 8px; padding-top: 56px; padding-bottom: 56px; }
     .band .n { font-size: 44px; }
     .band::after { background: linear-gradient(180deg, rgba(20,22,26,.25) 0%, rgba(20,22,26,.9) 75%); }
-    .gl { grid-template-columns: 1fr; }
+    .track { gap: 14px; padding: 0 20px; }
+    .slide { flex-basis: calc(100vw - 56px); aspect-ratio: 4/5; }
+    .slide .cap { padding: 0 22px 26px; }
+    .slide h3 { font-size: 21px; }
+    .slide .cap p { font-size: 14px; }
+    .arrows { gap: 14px; }
+    .gctrl { max-width: none; padding: 0 20px; }
+    .btn-outline { padding: 14px 20px; }
     .portfolio { padding: 112px 0; }
     .map { aspect-ratio: 4/3; }
     form { grid-template-columns: 1fr; }
@@ -301,17 +321,32 @@
 </section>
 
 <section class="guides" id="rehber">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><div class="eyebrow">Rehber</div><h2>Karar vermeden <em>önce</em> okuyun</h2></div>
-    </div>
-    <div class="gl">
-      <a class="g rv" href="https://www.eksperbursaemlak.com/bursa-da-depreme-dayanikli-ev-nasil-anlasilir/" target="_blank" rel="noopener"><span class="gn">01</span><h3>Bursa'da depreme dayanıklı ev nasıl anlaşılır?</h3><p>Fay hattı, zemin, yapı malzemesi ve kolon-kiriş sistemi: ev alırken bilmeniz gerekenler.</p><span class="more">Oku →</span></a>
-      <a class="g rv" href="https://www.eksperbursaemlak.com/gayrimenkul-satisinda-dikkat-edilecek-hususlar/" target="_blank" rel="noopener"><span class="gn">02</span><h3>Gayrimenkul alım-satımında dikkat edilecek hususlar</h3><p>Vekaletname, hisseli arsa, kapora öncesi tapu ve belediye kontrolü, ipotekli mülkler.</p><span class="more">Oku →</span></a>
-      <a class="g rv" href="https://www.eksperbursaemlak.com/bursa-kiralik-ev-ve-daire/" target="_blank" rel="noopener"><span class="gn">03</span><h3>Bursa'da kiralık ev ve daire</h3><p>Ev seçerken dikkat edilecekler, kira sözleşmesi, depozito ve tahliye taahhütnamesi.</p><span class="more">Oku →</span></a>
-      <a class="g rv" href="https://www.eksperbursaemlak.com/bursa-kiralik-isyeri-ve-bursa-kiralik-ofis/" target="_blank" rel="noopener"><span class="gn">04</span><h3>Bursa'da kiralık işyeri ve ofis</h3><p>Konum, bütçe, teknik özellikler ve doğru kiracıyı seçmek için öneriler.</p><span class="more">Oku →</span></a>
-      <a class="g rv" href="https://www.eksperbursaemlak.com/kiraciyi-nasil-cikarabilirim/" target="_blank" rel="noopener"><span class="gn">05</span><h3>Kiracıyı nasıl çıkarabilirim?</h3><p>Yasal süreç, uzlaşma yolları ve kira sözleşmesinde dikkat edilecek noktalar.</p><span class="more">Oku →</span></a>
-    </div>
+  <h2 class="gtitle rv">Eksper Rehber</h2>
+  <div class="track" id="track">
+      <a class="slide" href="https://www.eksperbursaemlak.com/bursa-da-depreme-dayanikli-ev-nasil-anlasilir/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1800&q=75&fm=jpg" alt="" loading="lazy">
+        <div class="cap"><div class="k">Rehber · 01</div><h3>Bursa'da depreme dayanıklı ev nasıl anlaşılır?</h3><p>Fay hattı, zemin, yapı malzemesi ve kolon-kiriş sistemi.</p></div>
+      </a>
+      <a class="slide" href="https://www.eksperbursaemlak.com/gayrimenkul-satisinda-dikkat-edilecek-hususlar/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1800&q=75&fm=jpg" alt="" loading="lazy">
+        <div class="cap"><div class="k">Rehber · 02</div><h3>Alım-satımda dikkat edilecek hususlar</h3><p>Vekaletname, hisseli arsa, kapora öncesi tapu ve belediye kontrolü, ipotek.</p></div>
+      </a>
+      <a class="slide" href="https://www.eksperbursaemlak.com/bursa-kiralik-ev-ve-daire/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1800&q=75&fm=jpg" alt="" loading="lazy">
+        <div class="cap"><div class="k">Rehber · 03</div><h3>Bursa'da kiralık ev ve daire</h3><p>Ev seçimi, kira sözleşmesi, depozito ve tahliye taahhütnamesi.</p></div>
+      </a>
+      <a class="slide" href="https://www.eksperbursaemlak.com/bursa-kiralik-isyeri-ve-bursa-kiralik-ofis/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=75&fm=jpg" alt="" loading="lazy">
+        <div class="cap"><div class="k">Rehber · 04</div><h3>Bursa'da kiralık işyeri ve ofis</h3><p>Konum, bütçe, teknik özellikler ve doğru kiracı seçimi.</p></div>
+      </a>
+      <a class="slide" href="https://www.eksperbursaemlak.com/kiraciyi-nasil-cikarabilirim/" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=75&fm=jpg" alt="" loading="lazy">
+        <div class="cap"><div class="k">Rehber · 05</div><h3>Kiracıyı nasıl çıkarabilirim?</h3><p>Yasal süreç, uzlaşma yolları ve kira sözleşmesi.</p></div>
+      </a>
+  </div>
+  <div class="gctrl">
+    <div class="arrows"><button class="prev" aria-label="Önceki"></button><span class="count" id="count">01 / 05</span><button class="next" aria-label="Sonraki"></button></div>
+    <a class="btn-outline" href="https://www.eksperbursaemlak.com/category/bursa-emlak/" target="_blank" rel="noopener">Tüm Yazılar</a>
   </div>
 </section>
 
@@ -370,6 +405,16 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
+
+  const track = document.getElementById('track'), slides = [...track.children], count = document.getElementById('count');
+  const prev = document.querySelector('.arrows .prev'), next = document.querySelector('.arrows .next');
+  const cur = () => slides.reduce((best, el, i) => Math.abs(el.offsetLeft + el.offsetWidth / 2 - track.scrollLeft - track.clientWidth / 2) < Math.abs(slides[best].offsetLeft + slides[best].offsetWidth / 2 - track.scrollLeft - track.clientWidth / 2) ? i : best, 0);
+  const go = i => { const el = slides[Math.max(0, Math.min(slides.length - 1, i))]; track.scrollTo({ left: el.offsetLeft - (track.clientWidth - el.offsetWidth) / 2 }); };
+  const sync = () => { const i = cur(); count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0'); prev.disabled = i === 0; next.disabled = i === slides.length - 1; };
+  prev.addEventListener('click', () => go(cur() - 1));
+  next.addEventListener('click', () => go(cur() + 1));
+  track.addEventListener('scroll', () => requestAnimationFrame(sync));
+  sync();
 </script>
 </body>
 </html>
