@@ -35,21 +35,36 @@
   .logo { display: flex; flex-direction: column; line-height: 1; }
   .logo b { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: .22em; }
   .logo span { font-size: 9px; letter-spacing: .42em; margin-top: 6px; opacity: .8; }
-  nav { display: flex; gap: 36px; align-items: center; }
-  nav a { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; opacity: .85; transition: opacity .3s; }
-  nav a:hover { opacity: 1; }
+  .hright { display: flex; align-items: center; gap: 28px; }
+  .hphone { font-size: 12px; letter-spacing: .2em; opacity: .85; }
+  .btn-line { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; }
+  .burger { background: none; border: 0; cursor: pointer; width: 30px; height: 20px; position: relative; padding: 0; }
+  .burger span { position: absolute; left: 0; right: 0; height: 1px; background: var(--cream); }
+  .burger span:nth-child(1) { top: 0; } .burger span:nth-child(2) { top: 9.5px; } .burger span:nth-child(3) { bottom: 0; }
+
+  /* Full-screen menu */
+  .menu { position: fixed; inset: 0; z-index: 50; background: rgba(20,22,26,.97); color: var(--cream); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 56px; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s; }
+  .menu.open { opacity: 1; visibility: visible; }
+  .menu-close { position: absolute; top: 36px; right: max(32px, calc((100vw - 1240px) / 2 + 32px)); width: 30px; height: 30px; background: none; border: 0; cursor: pointer; }
+  .menu-close::before, .menu-close::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--cream); transform: rotate(45deg); }
+  .menu-close::after { transform: rotate(-45deg); }
+  .menu-nav { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .menu-nav a { font-family: var(--serif); font-size: clamp(34px, 4.6vw, 58px); line-height: 1.2; opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease, color .3s; }
+  .menu.open .menu-nav a { opacity: 1; transform: none; }
+  .menu.open .menu-nav a:nth-child(2) { transition-delay: .05s; } .menu.open .menu-nav a:nth-child(3) { transition-delay: .1s; }
+  .menu.open .menu-nav a:nth-child(4) { transition-delay: .15s; } .menu.open .menu-nav a:nth-child(5) { transition-delay: .2s; } .menu.open .menu-nav a:nth-child(6) { transition-delay: .25s; }
+  .menu-nav a:hover { color: var(--gold-soft); }
+  .menu-foot { text-align: center; }
+  .menu-foot p { margin-top: 24px; font-size: 13px; letter-spacing: .14em; opacity: .7; }
   .btn-line { border: 1px solid rgba(245,241,234,.6); padding: 12px 20px; }
   .btn-line:hover { background: var(--cream); color: var(--ink); }
 
   /* Hero */
-  .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; color: var(--cream); overflow: hidden; }
+  .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; justify-content: center; color: var(--cream); overflow: hidden; }
   .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,22,26,.72) 0%, rgba(20,22,26,.35) 45%, rgba(20,22,26,0) 75%), linear-gradient(180deg, rgba(20,22,26,.5) 0%, rgba(20,22,26,0) 30%, rgba(20,22,26,.6) 100%); }
-  .hero .wrap { position: relative; z-index: 1; padding-bottom: 12vh; width: 100%; }
-  .hero .eyebrow { color: var(--gold-soft); margin-bottom: 24px; }
-  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6.4vw, 92px); line-height: 1.02; max-width: 15ch; letter-spacing: -.01em; }
-  .hero h1 em { color: var(--gold-soft); }
-  .hero p { max-width: 46ch; margin-top: 24px; font-size: 17px; font-weight: 300; opacity: .9; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,22,26,.45) 0%, rgba(20,22,26,0) 22%, rgba(20,22,26,0) 60%, rgba(20,22,26,.55) 100%); }
+  .hero-line { position: relative; z-index: 1; margin: 0 20px 112px; text-align: center; font-family: var(--sans); font-weight: 300; font-size: clamp(14px, 1.5vw, 20px); letter-spacing: .3em; text-transform: uppercase; line-height: 1.6; opacity: 0; animation: fadeup 1.6s .4s ease forwards; }
+  @keyframes fadeup { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   .actions { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 18px 30px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; transition: all .3s; }
   .btn-gold { background: var(--gold); color: #fff; }
@@ -183,7 +198,12 @@
 
   @media (max-width: 900px) {
     .wrap { padding: 0 20px; }
-    nav a:not(.btn-line) { display: none; }
+    .hphone { display: none; }
+    .hright { gap: 18px; }
+    .btn-line { padding: 10px 14px; font-size: 10px; }
+    .hero-line { margin-bottom: 132px; letter-spacing: .22em; }
+    .scroll-cue { bottom: 88px; }
+    .menu-close { top: 26px; right: 20px; }
     header .wrap { height: 76px; }
     .logo b { font-size: 24px; }
     section { padding: 88px 0; }
@@ -220,6 +240,7 @@
     .mbar a:last-child { background: var(--gold); color: #fff; }
   }
   @media (prefers-reduced-motion: reduce) {
+    .hero-line { animation: none; opacity: 1; }
     .rv { opacity: 1; transform: none; transition: none; }
   }
 </style>
@@ -229,30 +250,35 @@
 <header>
   <div class="wrap">
     <a href="#" class="logo"><b>EKSPER</b><span>GAYRİMENKUL · BURSA</span></a>
-    <nav>
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#hizmetler">Hizmetler</a>
-      <a href="#rehber">Rehber</a>
-      <a href="#ilanlar">İlanlar</a>
-      <a href="#degerleme">Değerleme</a>
+    <div class="hright">
+      <a href="tel:+905438381632" class="hphone">0543 838 16 32</a>
       <a href="#iletisim" class="btn-line">İletişim</a>
-    </nav>
+      <button class="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="menu-close" aria-label="Menüyü kapat"></button>
+  <nav class="menu-nav">
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#rehber">Rehber</a>
+    <a href="#ilanlar">İlanlar</a>
+    <a href="#degerleme">Değerleme</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <div class="menu-foot">
+    <a href="#degerleme" class="btn btn-gold">Değerinizi Öğrenin</a>
+    <p><a href="tel:+905438381632">0543 838 16 32</a> · Beşevler, Nilüfer / Bursa</p>
+  </div>
+</div>
 
 <div class="hero">
   <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="video/hero-poster.jpg" aria-hidden="true">
     <source src="video/hero.mp4" type="video/mp4">
   </video>
-  <div class="wrap">
-    <div class="eyebrow">Nilüfer · Bursa · Dürüst ve uzman emlak danışmanlığı</div>
-    <h1>Evinizin gerçek değerini bir <em>uzman</em> söylesin.</h1>
-    <p>İnşaat denetimi ve gayrimenkul değerleme geçmişiyle; alırken, satarken ve kiralarken yanınızda.</p>
-    <div class="actions">
-      <a href="#degerleme" class="btn btn-gold">Değerinizi Öğrenin</a>
-      <a href="tel:+905438381632" class="btn btn-ghost">0543 838 16 32</a>
-    </div>
-  </div>
+  <h1 class="hero-line">Evinizin gerçek değerini bir uzman söylesin</h1>
   <a href="#hakkimizda" class="scroll-cue" aria-label="Aşağı kaydır"></a>
 </div>
 
@@ -424,6 +450,13 @@
     hv.load();
   }
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) { hv.removeAttribute('autoplay'); hv.pause(); }
+
+  const menu = document.getElementById('menu'), burger = document.querySelector('.burger');
+  const setMenu = open => { menu.classList.toggle('open', open); menu.setAttribute('aria-hidden', !open); burger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; };
+  burger.addEventListener('click', () => setMenu(true));
+  menu.querySelector('.menu-close').addEventListener('click', () => setMenu(false));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 </script>
 </body>
 </html>
