@@ -3,14 +3,27 @@
 Durum: Test / sunum sayfası. Aşağıdakiler **Yaşar Bey kabul ederse** eklenecek.
 
 ## Yaşar Bey'e sorulacaklar
-1. **Portföy izni:** "Bu çalışmayı adınızla portföyümde gösterebilir miyim?" (ilk konu)
+
+### A. Önce (her şeyden önce)
+1. **Portföy izni:** "Bu çalışmayı adınızla portföyümde gösterebilir miyim?"
+
+### B. İçerik
 2. **Adres:** Sitede 28/G, iletişim sayfasında 28/C, Google Haritalar'da 28/H yazıyor. Doğrusu hangisi?
 3. **WhatsApp:** 0543 838 16 32 WhatsApp'ta kullanılıyor mu? (Yeni sitede WhatsApp butonu var.)
 4. **Ücretsiz değerleme** yapıyorlar mı? Yapıyorlarsa butona "Ücretsiz" yazılacak.
 5. **İnşaat bakım onarım** hizmeti hâlâ veriliyor mu? (Eski logoda yazıyor.)
 6. **Çalıştıkları semtler:** Değerleme formundaki semt listesi (Beşevler, Ataevler, Özlüce, Görükle) örnek olarak konuldu.
 7. **Uzman gözü maddeleri:** Depreme dayanıklılık, TSE malzeme kontrolü, teknik inceleme, emsal değer. Onaylatılacak.
-8. **Logo:** Kırmızı-mavi logo yeni tasarıma uymuyor. Sade bir versiyon önerilecek.
+8. **Ofis telefonu:** (224) 443 43 41 hâlâ geçerli mi?
+
+### C. Logo ve yönetim
+9. **Logo:** Kırmızı-mavi logo yeni tasarıma uymuyor. Sade bir versiyon öner.
+10. **Güncelleme:** "Siteyi kendiniz güncellemek ister misiniz (özellikle blog yazısı), yoksa değişiklikleri ben mi yapayım?" → Panel mi, aylık bakım mı?
+
+### D. Teknik (yayına alma için)
+11. **Alan adı:** "Alan adınızı hangi Gmail hesabıyla yönetiyorsunuz?" (Alan adı Squarespace'te kayıtlı; eskiden Google Domains'teydi, büyük ihtimalle Gmail ile giriliyor. Son kullanma: 12 Nisan 2027.) Değişikliği Yaşar Bey'in yanında, onun hesabından yap; şifre almaya gerek yok.
+12. **Eski host:** "Sitenizi kim kurdu, barındırma için kime ve ne kadar ödüyorsunuz?" (Site, "Affordable Web Design" firmasının Liquid Web'deki sunucusunda: host2.affordablewebdesign.com. Eski masraf sunumda "yeni sistemde sıfır" diye kullanılabilir.)
+13. **E-posta:** "@eksperbursaemlak.com uzantılı bir e-posta adresi kullanıyor musunuz?" (Alan adında Mailgun e-posta kaydı var. Kullanıyorsa taşımadan önce Gmail'e yönlendirme ayarlanacak, yoksa mailler kaybolabilir. Sadece Gmail kullanıyorsa bir şey yapmaya gerek yok.)
 
 ## Kabul edilirse eklenecek içerik (eski siteyle karşılaştırmadan)
 - [ ] **Ofis telefonu:** (224) 443 43 41 (iletişim bölümüne)
