@@ -43,9 +43,8 @@
 
   /* Hero */
   .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; color: var(--cream); overflow: hidden; }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); animation: slowzoom 18s ease-out forwards; }
+  .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,22,26,.72) 0%, rgba(20,22,26,.35) 45%, rgba(20,22,26,0) 75%), linear-gradient(180deg, rgba(20,22,26,.5) 0%, rgba(20,22,26,0) 30%, rgba(20,22,26,.6) 100%); }
-  @keyframes slowzoom { to { transform: scale(1); } }
   .hero .wrap { position: relative; z-index: 1; padding-bottom: 12vh; width: 100%; }
   .hero .eyebrow { color: var(--gold-soft); margin-bottom: 24px; }
   .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6.4vw, 92px); line-height: 1.02; max-width: 15ch; letter-spacing: -.01em; }
@@ -221,7 +220,6 @@
     .mbar a:last-child { background: var(--gold); color: #fff; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero img { animation: none; transform: none; }
     .rv { opacity: 1; transform: none; transition: none; }
   }
 </style>
@@ -243,7 +241,9 @@
 </header>
 
 <div class="hero">
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2000&q=80&fm=jpg" alt="">
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="video/hero-poster.jpg" aria-hidden="true">
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
   <div class="wrap">
     <div class="eyebrow">Nilüfer · Bursa · Dürüst ve uzman emlak danışmanlığı</div>
     <h1>Evinizin gerçek değerini bir <em>uzman</em> söylesin.</h1>
@@ -415,6 +415,15 @@
   next.addEventListener('click', () => go(cur() + 1));
   track.addEventListener('scroll', () => requestAnimationFrame(sync));
   sync();
+
+  // Telefonda dikey kesilmiş, daha hafif videoyu kullan
+  const hv = document.getElementById('heroVideo');
+  if (matchMedia('(max-width: 900px) and (orientation: portrait)').matches) {
+    hv.poster = 'video/hero-mobil-poster.jpg';
+    hv.querySelector('source').src = 'video/hero-mobil.mp4';
+    hv.load();
+  }
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { hv.removeAttribute('autoplay'); hv.pause(); }
 </script>
 </body>
 </html>
