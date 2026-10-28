@@ -85,24 +85,40 @@
   .timeline .t { font-size: 15px; }
   .sign { font-family: var(--serif); font-style: italic; font-size: 28px; margin-top: 32px; }
 
-  /* Listings */
-  .listings { background: var(--cream-2); }
-  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
-  .filters button { font: inherit; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 11px 18px; background: transparent; border: 1px solid #c9bfae; color: var(--ink); cursor: pointer; transition: all .3s; }
-  .filters button.on, .filters button:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
-  .card { cursor: pointer; }
-  .card .ph { overflow: hidden; aspect-ratio: 4/3; position: relative; }
-  .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
-  .card:hover img { transform: scale(1.05); }
-  .tag { position: absolute; top: 18px; left: 18px; background: rgba(245,241,234,.95); padding: 7px 12px; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; font-weight: 600; }
-  .card .meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 22px; gap: 16px; }
-  .card h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.15; }
-  .card .price { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
-  .card .loc { color: var(--muted); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; margin-top: 6px; }
-  .card .specs { display: flex; gap: 22px; margin-top: 14px; font-size: 14px; color: #45423d; }
-  .note { margin-top: 16px; padding-top: 14px; border-top: 1px solid #d3cabb; font-size: 14px; color: #45423d; }
-  .note b { color: var(--gold); font-weight: 600; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  /* Services */
+  .services .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d9d1c3; }
+  .svc { padding: 40px 32px 8px 0; border-right: 1px solid #d9d1c3; }
+  .svc + .svc { padding-left: 32px; }
+  .svc:last-child { border-right: 0; }
+  .svc .n { font-family: var(--serif); color: var(--gold); font-size: 20px; }
+  .svc h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; margin: 18px 0 14px; }
+  .svc p { color: #45423d; font-size: 15px; }
+  .svc ul { margin-top: 18px; }
+  .svc li { list-style: none; font-size: 14px; padding: 9px 0; border-top: 1px solid #e3dccf; }
+
+  /* Expert eye */
+  .eye { background: var(--cream-2); }
+  .eye .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 88px; align-items: start; }
+  .eye .photo { aspect-ratio: 3/4; overflow: hidden; position: sticky; top: 40px; }
+  .eye .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .eye .eyebrow { color: var(--gold); }
+  .eye h2 { margin: 14px 0 20px; }
+  .eye .lead { color: #45423d; max-width: 52ch; }
+  .checks { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+  .checks div { padding: 22px 0; border-top: 1px solid #d3cabb; }
+  .checks b { display: block; font-family: var(--serif); font-weight: 500; font-size: 22px; margin-bottom: 6px; }
+  .checks span { font-size: 14px; color: #5a5650; }
+
+  /* Portfolio CTA */
+  .portfolio { position: relative; color: var(--cream); padding: 160px 0; overflow: hidden; text-align: center; }
+  .portfolio img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .portfolio::after { content: ""; position: absolute; inset: 0; background: rgba(20,22,26,.62); }
+  .portfolio .wrap { position: relative; z-index: 1; }
+  .portfolio .eyebrow { color: var(--gold-soft); }
+  .portfolio h2 { margin: 16px auto 20px; max-width: 18ch; }
+  .portfolio h2 em { color: var(--gold-soft); }
+  .portfolio p { max-width: 50ch; margin: 0 auto; opacity: .85; font-weight: 300; }
+  .portfolio .actions { justify-content: center; }
   .demo { margin-top: 48px; font-size: 12px; color: var(--muted); }
 
   /* Valuation */
@@ -130,6 +146,8 @@
   footer p, footer a { font-size: 15px; opacity: .8; }
   footer .big { font-family: var(--serif); font-size: 34px; opacity: 1; display: block; }
 
+  .map { grid-column: 1 / -1; margin-top: 56px; aspect-ratio: 21/7; border: 0; width: 100%; filter: grayscale(1) contrast(.95); }
+
   /* Mobile bar */
   .mbar { display: none; }
 
@@ -149,9 +167,16 @@
     .about .wrap, .valuation .wrap { grid-template-columns: 1fr; gap: 56px; }
     .portrait { max-width: 420px; }
     .timeline li { grid-template-columns: 1fr; gap: 2px; }
-    .grid { grid-template-columns: 1fr; }
+    .services .grid3 { grid-template-columns: 1fr; }
+    .svc, .svc + .svc { padding: 32px 0 8px; border-right: 0; border-bottom: 1px solid #d9d1c3; }
+    .eye .wrap { grid-template-columns: 1fr; gap: 48px; }
+    .eye .photo { position: static; aspect-ratio: 4/3; }
+    .checks { grid-template-columns: 1fr; }
+    .portfolio { padding: 112px 0; }
+    .map { aspect-ratio: 4/3; }
     form { grid-template-columns: 1fr; }
     footer .wrap { grid-template-columns: 1fr; }
+    footer .demo { grid-column: 1 / -1; }
     .btn { padding: 16px 22px; flex: 1 1 100%; justify-content: center; }
     .mbar { display: grid; grid-template-columns: 1fr 1fr; position: fixed; inset: auto 0 0 0; z-index: 20; }
     .mbar a { padding: 18px; text-align: center; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; }
@@ -170,8 +195,9 @@
   <div class="wrap">
     <a href="#" class="logo"><b>EKSPER</b><span>GAYRİMENKUL · BURSA</span></a>
     <nav>
-      <a href="#ilanlar">İlanlar</a>
       <a href="#hakkimizda">Uzmanınız</a>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#ilanlar">İlanlar</a>
       <a href="#degerleme">Değerleme</a>
       <a href="#iletisim" class="btn-line">İletişim</a>
     </nav>
@@ -217,47 +243,63 @@
   </div>
 </section>
 
-<section class="listings" id="ilanlar">
+<section class="services" id="hizmetler">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow">Portföy</div><h2>Seçili ilanlar</h2></div>
-      <div class="filters">
-        <button class="on" data-f="all">Tümü</button>
-        <button data-f="satilik">Satılık</button>
-        <button data-f="kiralik">Kiralık</button>
+      <div><div class="eyebrow">Hizmetler</div><h2>Her adımda <em>danışmanınız</em></h2></div>
+    </div>
+    <div class="grid3">
+      <div class="svc rv">
+        <div class="n">01</div>
+        <h3>Satarken</h3>
+        <p>Evinizi doğru fiyatla, doğru alıcıya ve en az zaman kaybıyla satmanız için.</p>
+        <ul><li>Uzman değerlemeyle fiyat belirleme</li><li>İlan hazırlığı ve tanıtım</li><li>Tapu sürecine kadar takip</li></ul>
+      </div>
+      <div class="svc rv">
+        <div class="n">02</div>
+        <h3>Alırken</h3>
+        <p>Beğendiğiniz evin fiyatının ve yapısının gerçekten sağlam olduğundan emin olmanız için.</p>
+        <ul><li>İhtiyaca uygun ev arama</li><li>Yapı ve belge kontrolü</li><li>Pazarlık ve tapu desteği</li></ul>
+      </div>
+      <div class="svc rv">
+        <div class="n">03</div>
+        <h3>Yatırım yaparken</h3>
+        <p>Bursa'da hangi bölgenin, hangi tip mülkün değer kazanacağını birlikte değerlendirmek için.</p>
+        <ul><li>Bölge ve getiri analizi</li><li>Kiralama danışmanlığı</li><li>Portföy değerlemesi</li></ul>
       </div>
     </div>
-    <div class="grid">
-      <article class="card rv" data-t="satilik">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=75&fm=jpg" alt="" loading="lazy"><span class="tag">Satılık</span></div>
-        <div class="meta"><h3>Geniş salonlu 3+1</h3><span class="price">Fiyat için arayın</span></div>
-        <div class="loc">Beşevler · Nilüfer</div>
-        <div class="specs"><span>145 m²</span><span>3+1</span><span>5. kat</span></div>
-        <div class="note"><b>Uzman notu</b>Örnek: yapının taşıyıcı sistemi ve tesisatı hakkında kısa bir değerlendirme burada yer alır.</div>
-      </article>
-      <article class="card rv" data-t="satilik">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=75&fm=jpg" alt="" loading="lazy"><span class="tag">Satılık</span></div>
-        <div class="meta"><h3>Bahçeli müstakil villa</h3><span class="price">Fiyat için arayın</span></div>
-        <div class="loc">Özlüce · Nilüfer</div>
-        <div class="specs"><span>260 m²</span><span>4+1</span><span>Bahçe</span></div>
-        <div class="note"><b>Uzman notu</b>Örnek: bölgedeki benzer satışlara göre fiyatın nerede durduğuna dair kısa yorum.</div>
-      </article>
-      <article class="card rv" data-t="kiralik">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=75&fm=jpg" alt="" loading="lazy"><span class="tag">Kiralık</span></div>
-        <div class="meta"><h3>Aydınlık site dairesi</h3><span class="price">Fiyat için arayın</span></div>
-        <div class="loc">Ataevler · Nilüfer</div>
-        <div class="specs"><span>120 m²</span><span>2+1</span><span>Site içi</span></div>
-        <div class="note"><b>Uzman notu</b>Örnek: güney cephe, bina yaşı ve aidat hakkında kısa bilgi.</div>
-      </article>
-      <article class="card rv" data-t="kiralik">
-        <div class="ph"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=75&fm=jpg" alt="" loading="lazy"><span class="tag">Kiralık</span></div>
-        <div class="meta"><h3>Ferah, eşyalı daire</h3><span class="price">Fiyat için arayın</span></div>
-        <div class="loc">Görükle · Nilüfer</div>
-        <div class="specs"><span>95 m²</span><span>2+1</span><span>Eşyalı</span></div>
-        <div class="note"><b>Uzman notu</b>Örnek: ulaşım ve çevredeki olanaklar hakkında kısa not.</div>
-      </article>
+  </div>
+</section>
+
+<section class="eye">
+  <div class="wrap">
+    <div class="photo rv"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=75&fm=jpg" alt="" loading="lazy"></div>
+    <div class="rv">
+      <div class="eyebrow">Uzman gözü</div>
+      <h2>Bir evi gezerken <em>neye</em> bakıyoruz?</h2>
+      <p class="lead">İlan fotoğrafları bir evin sadece yüzünü gösterir. Yıllarca şantiye denetlemiş bir göz ise duvarın arkasını da görür.</p>
+      <div class="checks">
+        <div><b>Taşıyıcı sistem</b><span>Kolon, kiriş ve duvarlardaki çatlaklar, yapının genel sağlığı.</span></div>
+        <div><b>Rutubet ve yalıtım</b><span>Nem izleri, küf, çatı ve dış cephe yalıtımı.</span></div>
+        <div><b>Tesisat</b><span>Elektrik, su ve doğalgaz tesisatının durumu ve yaşı.</span></div>
+        <div><b>Belgeler</b><span>Tapu, iskân ve imar durumunun uygunluğu.</span></div>
+        <div><b>Bina yaşı ve deprem</b><span>Yapım yılı ve güncel deprem yönetmeliğine uygunluk.</span></div>
+        <div><b>Gerçek değer</b><span>Bölgedeki emsal satışlara göre makul fiyat aralığı.</span></div>
+      </div>
     </div>
-    <p class="demo">Konsept taslaktır. İlanlar örnektir, fotoğraflar Unsplash'tan alınmış stok görsellerdir.</p>
+  </div>
+</section>
+
+<section class="portfolio" id="ilanlar">
+  <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2000&q=75&fm=jpg" alt="" loading="lazy">
+  <div class="wrap rv">
+    <div class="eyebrow">Portföy</div>
+    <h2>Güncel ilanlarımız <em>sahibinden.com</em>'da</h2>
+    <p>Satılık ve kiralık tüm ilanlarımızı mağazamızda her gün güncel tutuyoruz.</p>
+    <div class="actions">
+      <a href="https://bursaeksperemlak.sahibinden.com/emlak?sorting=date_desc" target="_blank" rel="noopener" class="btn btn-gold">Tüm İlanları Gör</a>
+      <a href="https://bursaeksperemlak.sahibinden.com/satilik-daire?sorting=storeShowcase" target="_blank" rel="noopener" class="btn btn-ghost">Satılık Daireler</a>
+    </div>
   </div>
 </section>
 
@@ -294,6 +336,8 @@
     <div><span class="eyebrow">Telefon</span><a class="big" href="tel:+905438381632">0543 838 16 32</a></div>
     <div><span class="eyebrow">WhatsApp</span><a class="big" href="https://wa.me/905438381632">Mesaj gönder</a></div>
   </div>
+  <div class="wrap"><iframe class="map" src="https://maps.google.com/maps?q=40.2085422,28.976028&z=15&output=embed" loading="lazy" title="Ofis konumu"></iframe></div>
+  <div class="wrap"><p class="demo" style="grid-column:1/-1">Konsept taslaktır. Fotoğraflar Unsplash'tan alınmış stok görsellerdir.</p></div>
 </footer>
 
 <div class="mbar">
@@ -305,10 +349,6 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-  document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('on', x === b));
-    document.querySelectorAll('.card').forEach(c => c.style.display = (b.dataset.f === 'all' || c.dataset.t === b.dataset.f) ? '' : 'none');
-  }));
 </script>
 </body>
 </html>
