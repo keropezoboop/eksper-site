@@ -83,7 +83,8 @@
   .timeline li { list-style: none; display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid #d9d1c3; }
   .timeline .y { font-family: var(--serif); font-size: 22px; color: var(--gold); line-height: 1.2; }
   .timeline .t { font-size: 15px; }
-  .sign { font-family: var(--serif); font-style: italic; font-size: 28px; margin-top: 32px; }
+  .quote { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; margin-top: 40px; padding-left: 24px; border-left: 2px solid var(--gold); max-width: 30ch; }
+  .sign { font-family: var(--sans); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; margin-top: 18px; padding-left: 26px; color: var(--muted); }
 
   /* Services */
   .services .grid3 { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #d9d1c3; }
@@ -108,6 +109,16 @@
   .checks div { padding: 22px 0; border-top: 1px solid #d3cabb; }
   .checks b { display: block; font-family: var(--serif); font-weight: 500; font-size: 22px; margin-bottom: 6px; }
   .checks span { font-size: 14px; color: #5a5650; }
+
+  /* Guides */
+  .guides { background: var(--cream); }
+  .gl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
+  .g { display: flex; flex-direction: column; padding: 32px 0 36px; border-top: 1px solid #d9d1c3; transition: border-color .3s; }
+  .g:hover { border-color: var(--gold); }
+  .gn { font-family: var(--serif); color: var(--gold); font-size: 20px; }
+  .g h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; line-height: 1.2; margin: 14px 0 12px; }
+  .g p { font-size: 14px; color: #5a5650; flex: 1; }
+  .g .more { margin-top: 20px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
 
   /* Portfolio CTA */
   .portfolio { position: relative; color: var(--cream); padding: 160px 0; overflow: hidden; text-align: center; }
@@ -169,6 +180,7 @@
     .eye .wrap { grid-template-columns: 1fr; gap: 48px; }
     .eye .photo { position: static; aspect-ratio: 4/3; }
     .checks { grid-template-columns: 1fr; }
+    .gl { grid-template-columns: 1fr; }
     .portfolio { padding: 112px 0; }
     .map { aspect-ratio: 4/3; }
     form { grid-template-columns: 1fr; }
@@ -194,6 +206,7 @@
     <nav>
       <a href="#hakkimizda">Uzmanınız</a>
       <a href="#hizmetler">Hizmetler</a>
+      <a href="#rehber">Rehber</a>
       <a href="#ilanlar">İlanlar</a>
       <a href="#degerleme">Değerleme</a>
       <a href="#iletisim" class="btn-line">İletişim</a>
@@ -204,7 +217,7 @@
 <div class="hero">
   <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2000&q=80&fm=jpg" alt="">
   <div class="wrap">
-    <div class="eyebrow">Nilüfer · Bursa</div>
+    <div class="eyebrow">Nilüfer · Bursa · Dürüst ve uzman emlak danışmanlığı</div>
     <h1>Evinizin gerçek değerini bir <em>uzman</em> söylesin.</h1>
     <p>İnşaat denetimi ve gayrimenkul değerleme geçmişiyle; alırken, satarken ve kiralarken yanınızda.</p>
     <div class="actions">
@@ -216,7 +229,7 @@
 
 <div class="strip">
   <div class="wrap">
-    <div class="item rv"><div class="eyebrow">1980 – 2009</div><h3>Toplu konut ve MSB inşaatlarında yapı denetimi</h3></div>
+    <div class="item rv"><div class="eyebrow">1980 – 2009</div><h3>Toplu Konut ve MSB inşaatlarında denetim</h3></div>
     <div class="item rv"><div class="eyebrow">Değerleme</div><h3>Gayrimenkul değerleme uzmanlığı</h3></div>
     <div class="item rv"><div class="eyebrow">Bugün</div><h3>Nilüfer'de alım, satım ve kiralama danışmanlığı</h3></div>
   </div>
@@ -231,10 +244,12 @@
       <p>Gayrimenkul alımı, hayatta vereceğiniz en önemli kararlardan ve yapacağınız en yüksek yatırımlardan biridir. Bu kararda bir gayrimenkul uzmanına danışmak çok faydalıdır.</p>
       <p>Yaşar Yıldırım, uzun yıllar boyunca edindiği gayrimenkul inceleme ve değerleme tecrübesiyle hakkınızı korumak için yanınızda.</p>
       <ul class="timeline">
-        <li><span class="y">1980 – 2009</span><span class="t">Toplu konut inşaat kontrolörü, MSB inşaat denetmeni</span></li>
-        <li><span class="y">Sonrası</span><span class="t">Gayrimenkul değerleme firmasında emlak değerleme uzmanı</span></li>
+        <li><span class="y">1980 – 1982</span><span class="t">Toplu Konut inşaatlarında kontrolör</span></li>
+        <li><span class="y">1982 – 2009</span><span class="t">Milli Savunma Bakanlığı'na ait her türlü inşaatın denetimi</span></li>
+        <li><span class="y">Sonrası</span><span class="t">Merkezi Ankara'da bir gayrimenkul değerleme firmasında Emlak Değerleme Uzmanı</span></li>
         <li><span class="y">Bugün</span><span class="t">Eksper Gayrimenkul, Nilüfer</span></li>
       </ul>
+      <blockquote class="quote">“Benim için en önemli prensip dürüstlüktür. Size doğru bilgileri sunarak, karar verme sürecinizde yanınızda olacağım.”</blockquote>
       <div class="sign">Yaşar Yıldırım</div>
     </div>
   </div>
@@ -291,6 +306,21 @@
   </div>
 </section>
 
+<section class="guides" id="rehber">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Rehber</div><h2>Karar vermeden <em>önce</em> okuyun</h2></div>
+    </div>
+    <div class="gl">
+      <a class="g rv" href="https://www.eksperbursaemlak.com/bursa-da-depreme-dayanikli-ev-nasil-anlasilir/" target="_blank" rel="noopener"><span class="gn">01</span><h3>Bursa'da depreme dayanıklı ev nasıl anlaşılır?</h3><p>Fay hattı, zemin, yapı malzemesi ve kolon-kiriş sistemi: ev alırken bilmeniz gerekenler.</p><span class="more">Oku →</span></a>
+      <a class="g rv" href="https://www.eksperbursaemlak.com/gayrimenkul-satisinda-dikkat-edilecek-hususlar/" target="_blank" rel="noopener"><span class="gn">02</span><h3>Gayrimenkul alım-satımında dikkat edilecek hususlar</h3><p>Vekaletname, hisseli arsa, kapora öncesi tapu ve belediye kontrolü, ipotekli mülkler.</p><span class="more">Oku →</span></a>
+      <a class="g rv" href="https://www.eksperbursaemlak.com/bursa-kiralik-ev-ve-daire/" target="_blank" rel="noopener"><span class="gn">03</span><h3>Bursa'da kiralık ev ve daire</h3><p>Ev seçerken dikkat edilecekler, kira sözleşmesi, depozito ve tahliye taahhütnamesi.</p><span class="more">Oku →</span></a>
+      <a class="g rv" href="https://www.eksperbursaemlak.com/bursa-kiralik-isyeri-ve-bursa-kiralik-ofis/" target="_blank" rel="noopener"><span class="gn">04</span><h3>Bursa'da kiralık işyeri ve ofis</h3><p>Konum, bütçe, teknik özellikler ve doğru kiracıyı seçmek için öneriler.</p><span class="more">Oku →</span></a>
+      <a class="g rv" href="https://www.eksperbursaemlak.com/kiraciyi-nasil-cikarabilirim/" target="_blank" rel="noopener"><span class="gn">05</span><h3>Kiracıyı nasıl çıkarabilirim?</h3><p>Yasal süreç, uzlaşma yolları ve kira sözleşmesinde dikkat edilecek noktalar.</p><span class="more">Oku →</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="portfolio" id="ilanlar">
   <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2000&q=75&fm=jpg" alt="" loading="lazy">
   <div class="wrap rv">
@@ -328,8 +358,9 @@
     <div>
       <a href="#" class="logo"><b>EKSPER</b><span>GAYRİMENKUL · BURSA</span></a>
       <p style="margin-top:28px;max-width:36ch">Beşevler Mah. Bilginler Cad. Yeşilkent Sitesi A Blok 28/G, Nilüfer / Bursa</p>
+      <p style="margin-top:12px"><a href="mailto:eksperbursaemlak1@gmail.com">eksperbursaemlak1@gmail.com</a></p>
     </div>
-    <div><span class="eyebrow">Telefon</span><a class="big" href="tel:+905438381632">0543 838 16 32</a></div>
+    <div><span class="eyebrow">Telefon</span><a class="big" href="tel:+905438381632">0543 838 16 32</a><p style="margin-top:10px">Hafta sonu dahil her an arayabilirsiniz.</p></div>
     <div><span class="eyebrow">WhatsApp</span><a class="big" href="https://wa.me/905438381632">Mesaj gönder</a></div>
   </div>
   <div class="wrap"><iframe class="map" src="https://maps.google.com/maps?q=40.2085422,28.976028&z=15&output=embed" loading="lazy" title="Ofis konumu"></iframe></div>
