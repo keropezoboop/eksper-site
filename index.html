@@ -86,10 +86,10 @@
   .sign { font-family: var(--serif); font-style: italic; font-size: 28px; margin-top: 32px; }
 
   /* Services */
-  .services .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d9d1c3; }
-  .svc { padding: 40px 32px 8px 0; border-right: 1px solid #d9d1c3; }
-  .svc + .svc { padding-left: 32px; }
-  .svc:last-child { border-right: 0; }
+  .services .grid3 { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #d9d1c3; }
+  .svc { padding: 40px 40px 32px 0; border-bottom: 1px solid #d9d1c3; }
+  .svc:nth-child(odd) { border-right: 1px solid #d9d1c3; }
+  .svc:nth-child(even) { padding-left: 40px; }
   .svc .n { font-family: var(--serif); color: var(--gold); font-size: 20px; }
   .svc h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; margin: 18px 0 14px; }
   .svc p { color: #45423d; font-size: 15px; }
@@ -128,9 +128,6 @@
   .valuation h2 { margin: 14px 0 24px; }
   .valuation h2 em { color: var(--gold-soft); }
   .valuation p { opacity: .75; max-width: 44ch; }
-  .steps { margin-top: 40px; display: grid; gap: 18px; }
-  .steps div { display: flex; gap: 18px; align-items: baseline; }
-  .steps span { font-family: var(--serif); color: var(--gold-soft); font-size: 22px; }
   form { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 24px; align-content: start; }
   label { display: block; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; opacity: .6; margin-bottom: 8px; }
   input, select { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(245,241,234,.3); color: var(--cream); font: inherit; font-size: 16px; padding: 8px 0 12px; outline: none; border-radius: 0; -webkit-appearance: none; appearance: none; }
@@ -168,7 +165,7 @@
     .portrait { max-width: 420px; }
     .timeline li { grid-template-columns: 1fr; gap: 2px; }
     .services .grid3 { grid-template-columns: 1fr; }
-    .svc, .svc + .svc { padding: 32px 0 8px; border-right: 0; border-bottom: 1px solid #d9d1c3; }
+    .svc, .svc:nth-child(even) { padding: 32px 0 24px; border-right: 0; }
     .eye .wrap { grid-template-columns: 1fr; gap: 48px; }
     .eye .photo { position: static; aspect-ratio: 4/3; }
     .checks { grid-template-columns: 1fr; }
@@ -211,7 +208,7 @@
     <h1>Evinizin gerçek değerini bir <em>uzman</em> söylesin.</h1>
     <p>İnşaat denetimi ve gayrimenkul değerleme geçmişiyle; alırken, satarken ve kiralarken yanınızda.</p>
     <div class="actions">
-      <a href="#degerleme" class="btn btn-gold">Ücretsiz Değerleme</a>
+      <a href="#degerleme" class="btn btn-gold">Değerinizi Öğrenin</a>
       <a href="tel:+905438381632" class="btn btn-ghost">0543 838 16 32</a>
     </div>
   </div>
@@ -219,9 +216,9 @@
 
 <div class="strip">
   <div class="wrap">
-    <div class="item rv"><div class="eyebrow">1980'den bu yana</div><h3>Toplu konut ve MSB inşaatlarında yapı denetimi</h3></div>
+    <div class="item rv"><div class="eyebrow">1980 – 2009</div><h3>Toplu konut ve MSB inşaatlarında yapı denetimi</h3></div>
     <div class="item rv"><div class="eyebrow">Değerleme</div><h3>Gayrimenkul değerleme uzmanlığı</h3></div>
-    <div class="item rv"><div class="eyebrow">Bugün</div><h3>Nilüfer'de alım, satım ve kiralama</h3></div>
+    <div class="item rv"><div class="eyebrow">Bugün</div><h3>Nilüfer'de alım, satım ve kiralama danışmanlığı</h3></div>
   </div>
 </div>
 
@@ -231,8 +228,8 @@
     <div class="rv">
       <div class="eyebrow" style="color:var(--gold)">Uzmanınız</div>
       <h2>Bir evi, <em>yapılırken</em> görmüş birinin gözüyle.</h2>
-      <p>Yıllarca şantiyelerde betonun, demirin, işçiliğin doğru yapılıp yapılmadığını denetledik. Ardından gayrimenkul değerleme uzmanı olarak evlerin gerçek değerini hesapladık.</p>
-      <p>Bugün bu birikimi size sunuyoruz: bir dairenin sadece ilan fotoğrafına değil, yapısına, konumuna ve gerçek piyasa değerine bakıyoruz.</p>
+      <p>Gayrimenkul alımı, hayatta vereceğiniz en önemli kararlardan ve yapacağınız en yüksek yatırımlardan biridir. Bu kararda bir gayrimenkul uzmanına danışmak çok faydalıdır.</p>
+      <p>Yaşar Yıldırım, uzun yıllar boyunca edindiği gayrimenkul inceleme ve değerleme tecrübesiyle hakkınızı korumak için yanınızda.</p>
       <ul class="timeline">
         <li><span class="y">1980 – 2009</span><span class="t">Toplu konut inşaat kontrolörü, MSB inşaat denetmeni</span></li>
         <li><span class="y">Sonrası</span><span class="t">Gayrimenkul değerleme firmasında emlak değerleme uzmanı</span></li>
@@ -251,21 +248,27 @@
     <div class="grid3">
       <div class="svc rv">
         <div class="n">01</div>
-        <h3>Satarken</h3>
-        <p>Evinizi doğru fiyatla, doğru alıcıya ve en az zaman kaybıyla satmanız için.</p>
-        <ul><li>Uzman değerlemeyle fiyat belirleme</li><li>İlan hazırlığı ve tanıtım</li><li>Tapu sürecine kadar takip</li></ul>
+        <h3>Satanlar için</h3>
+        <p>Gayrimenkulünüzün en kısa zamanda ve değerinde satılması için.</p>
+        <ul><li>Emsalleri inceleyerek fiyat araştırması</li><li>İç ve dış fotoğraf çekimi, ilan sitelerinde yayın ve takip</li><li>Teknik inceleme ile az masrafla değer artırma önerileri</li><li>Alıcı tekliflerinin değerlendirilmesi</li></ul>
       </div>
       <div class="svc rv">
         <div class="n">02</div>
-        <h3>Alırken</h3>
-        <p>Beğendiğiniz evin fiyatının ve yapısının gerçekten sağlam olduğundan emin olmanız için.</p>
-        <ul><li>İhtiyaca uygun ev arama</li><li>Yapı ve belge kontrolü</li><li>Pazarlık ve tapu desteği</li></ul>
+        <h3>Alanlar için</h3>
+        <p>Siz ve aileniz için en doğru kararı vermeniz için.</p>
+        <ul><li>İhtiyaçlarınıza uygun gayrimenkul araştırması</li><li>Depreme dayanıklılık ve teknik inceleme</li><li>Kredi ve faiz araştırması</li><li>Satıcıyla bire bir görüşme ve teklif</li></ul>
       </div>
       <div class="svc rv">
         <div class="n">03</div>
-        <h3>Yatırım yaparken</h3>
-        <p>Bursa'da hangi bölgenin, hangi tip mülkün değer kazanacağını birlikte değerlendirmek için.</p>
-        <ul><li>Bölge ve getiri analizi</li><li>Kiralama danışmanlığı</li><li>Portföy değerlemesi</li></ul>
+        <h3>Kiralama ve mülk yönetimi</h3>
+        <p>Konut, işyeri, ofis ve arazide kiraya veren ve kiracıya danışmanlık.</p>
+        <ul><li>Kiralama aracılık hizmetleri</li><li>Kiralık ofis ve işyeri danışmanlığı</li><li>Vergi, harç, abonelik ve sigorta işlemlerinin takibi</li></ul>
+      </div>
+      <div class="svc rv">
+        <div class="n">04</div>
+        <h3>Değerleme ve yatırım</h3>
+        <p>Doğru fiyat ve doğru yatırım kararı için.</p>
+        <ul><li>Gerçek satış ve kira değerinin tespiti</li><li>En uygun bölge, mülk tipi ve fiyat için yatırım danışmanlığı</li></ul>
       </div>
     </div>
   </div>
@@ -276,15 +279,13 @@
     <div class="photo rv"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=75&fm=jpg" alt="" loading="lazy"></div>
     <div class="rv">
       <div class="eyebrow">Uzman gözü</div>
-      <h2>Bir evi gezerken <em>neye</em> bakıyoruz?</h2>
-      <p class="lead">İlan fotoğrafları bir evin sadece yüzünü gösterir. Yıllarca şantiye denetlemiş bir göz ise duvarın arkasını da görür.</p>
+      <h2>Bir eve <em>uzman</em> gözüyle bakmak</h2>
+      <p class="lead">Uzun yıllar edinilen gayrimenkul inceleme ve değerleme tecrübesiyle, alacağınız evi yapısıyla birlikte değerlendiriyoruz.</p>
       <div class="checks">
-        <div><b>Taşıyıcı sistem</b><span>Kolon, kiriş ve duvarlardaki çatlaklar, yapının genel sağlığı.</span></div>
-        <div><b>Rutubet ve yalıtım</b><span>Nem izleri, küf, çatı ve dış cephe yalıtımı.</span></div>
-        <div><b>Tesisat</b><span>Elektrik, su ve doğalgaz tesisatının durumu ve yaşı.</span></div>
-        <div><b>Belgeler</b><span>Tapu, iskân ve imar durumunun uygunluğu.</span></div>
-        <div><b>Bina yaşı ve deprem</b><span>Yapım yılı ve güncel deprem yönetmeliğine uygunluk.</span></div>
-        <div><b>Gerçek değer</b><span>Bölgedeki emsal satışlara göre makul fiyat aralığı.</span></div>
+        <div><b>Depreme dayanıklılık</b><span>Alacağınız gayrimenkulün depreme karşı dayanıklılığını araştırıyoruz.</span></div>
+        <div><b>Malzeme kalitesi</b><span>İnşaatta kullanılan malzemenin TSE standartlarına uyup uymadığına bakıyoruz.</span></div>
+        <div><b>Teknik inceleme</b><span>Alacağınız gayrimenkulü teknik olarak inceliyoruz.</span></div>
+        <div><b>Gerçek değer</b><span>Emsalleri inceleyerek doğru fiyatı araştırıyoruz.</span></div>
       </div>
     </div>
   </div>
@@ -295,7 +296,7 @@
   <div class="wrap rv">
     <div class="eyebrow">Portföy</div>
     <h2>Güncel ilanlarımız <em>sahibinden.com</em>'da</h2>
-    <p>Satılık ve kiralık tüm ilanlarımızı mağazamızda her gün güncel tutuyoruz.</p>
+    <p>Satılık ve kiralık ilanlarımızın tamamını sahibinden.com mağazamızda inceleyebilirsiniz.</p>
     <div class="actions">
       <a href="https://bursaeksperemlak.sahibinden.com/emlak?sorting=date_desc" target="_blank" rel="noopener" class="btn btn-gold">Tüm İlanları Gör</a>
       <a href="https://bursaeksperemlak.sahibinden.com/satilik-daire?sorting=storeShowcase" target="_blank" rel="noopener" class="btn btn-ghost">Satılık Daireler</a>
@@ -306,14 +307,9 @@
 <section class="valuation" id="degerleme">
   <div class="wrap">
     <div class="rv">
-      <div class="eyebrow">Ücretsiz değerleme</div>
+      <div class="eyebrow">Değerleme</div>
       <h2>Gayrimenkulünüzün değeri <em>ne kadar?</em></h2>
-      <p>Birkaç bilgiyi paylaşın; evinizi bir değerleme uzmanının gözüyle inceleyip size dönelim.</p>
-      <div class="steps">
-        <div><span>01</span>Formu doldurun</div>
-        <div><span>02</span>Sizi arayalım, gerekirse yerinde görelim</div>
-        <div><span>03</span>Gerçekçi bir değer aralığı alın</div>
-      </div>
+      <p>Gayrimenkulünüzün bilgilerini paylaşın, size dönelim.</p>
     </div>
     <form class="rv" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Teşekkürler — sizi arayacağız';">
       <div><label>Ad Soyad</label><input required></div>
