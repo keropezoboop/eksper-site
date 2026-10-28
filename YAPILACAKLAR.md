@@ -35,6 +35,25 @@ Durum: Test / sunum sayfası. Aşağıdakiler **Yaşar Bey kabul ederse** eklene
 - [ ] Kalan stok fotoğrafları değiştir (Satanlar için, Alanlar için, Rehber 1-2-5, uzman gözü şeritleri).
 - [ ] Yayına alma (portföy için).
 
+## Yönetim paneli (Yaşar Bey siteyi kendisi güncellemek isterse)
+Görüşmede sor: **"Siteyi kendiniz güncellemek ister misiniz, yoksa değişiklikleri ben mi yapayım?"**
+- **Karar:** WordPress yok (ne tam WordPress ne arka planda "headless" WordPress). Güncelleme ve güvenlik derdi, ek barındırma maliyeti istemiyoruz.
+- **Yapılacak:** Hafif içerik paneli (Decap CMS / TinaCMS gibi). Site sabit kalır, `/admin` adresinden giriş yapılır.
+- **Panelde düzenlenebilecekler:** Blog yazıları (başlık, kapak fotoğrafı, kısa özet, metin), fotoğraflar, temel metinler.
+- **Düzenlenemeyecekler (bilerek):** Renkler, yazı tipleri, sayfa düzeni. Tasarım hep tutarlı kalır.
+- **Blog yazısı akışı:** Panelde "Yeni Yazı" → formu doldur → "Yayınla". Yazı hazır yazı sayfası şablonuyla açılır ve ana sayfadaki Eksper Rehber galerisine kendiliğinden eklenir.
+- [ ] Blog **yazı sayfası şablonunu** tasarla (sitenin tasarımıyla aynı: espresso, altın, aynı yazı tipleri).
+- [ ] Eski sitedeki **17 blog yazısını** bu şablona taşı.
+- [ ] Rehber galerisini son yazıları otomatik gösterecek hale getir.
+- [ ] Paneli kur ve Yaşar Bey'e 10 dakikalık kullanım gösterimi yap.
+
+## Fiyat notları (Ekim 2026 piyasa araştırması, kabaca gösterge)
+- Bu müşteriye site **ücretsiz** (karşılığında portföy izni).
+- **Yönetim paneli:** 2.000 TL, tek seferlik.
+- **Aylık bakım:** 1.000 TL (alan adı ve barındırma dahil). Yıllık peşin: 10.000 TL. Kapsamı yazılı olarak netleştir: ayda birkaç küçük metin/fotoğraf değişikliği, yedekleme, sitenin ve formların çalışır durumda kalması.
+- Sonraki müşterilerde özel tasarım siteyi 5.000 TL'ye satma. Piyasada bu kalitede işler 15.000 TL ve üzerinden başlıyor.
+- Teklif verirken KDV dahil mi hariç mi netleştir.
+
 ## Sunumda kullanılacak bulgu
 Eski sitedeki formların **hiçbiri çalışmıyor**: "Gayrimenkul Arıyorum" ve "Satmak / Kiralamak İstiyorum" sayfalarında form yerine `[gravityform ...]` kodu görünüyor, sayfa altlarındaki "Emlak Talep Formu" başlığının altı boş. Şu an siteden kimse ulaşamıyor, sadece telefonla ulaşılabiliyor.
 
